@@ -4,17 +4,17 @@ BluetoothSerial bt;
 
 //pins For score, over, wicket,target and led
 #define S_1 32
-#define S_2 35
-#define S_3 34
-#define O_1 39
-#define O_2 36
-#define O_3 15
+#define S_2 15
 #define led 2
-#define W_1 4
-#define W_2 16
-#define T_1 17
-#define T_2 5
-#define T_3 18
+#define S_3 4
+#define O_1 16
+#define O_2 17
+#define O_3 5
+#define W_1 18
+#define W_2 19
+#define T_1 21
+#define T_2 3
+#define T_3 1
 
 
 //pins for data
@@ -156,19 +156,19 @@ void score(int number)
   int d3_s = number % 10;
 
   show(d1_s);
-  digitalWrite(S_1, LOW);
+  digitalWrite(S_1,HIGH);
   delay(2);
-  digitalWrite(S_1, HIGH);
+  digitalWrite(S_1, LOW);
 
   show(d2_s);
-  digitalWrite(S_2, LOW);
-  delay(2);
   digitalWrite(S_2, HIGH);
+  delay(2);
+  digitalWrite(S_2, LOW);
 
   show(d3_s);
-  digitalWrite(S_3, LOW);
-  delay(2);
   digitalWrite(S_3, HIGH);
+  delay(2);
+  digitalWrite(S_3, LOW);
 }
 
 void over(int number) 
@@ -178,19 +178,19 @@ void over(int number)
   int d3_o = number % 10;
 
   show(d1_o);
-  digitalWrite(O_1, LOW);
-  delay(2);
   digitalWrite(O_1, HIGH);
+  delay(2);
+  digitalWrite(O_1, LOW);
 
   show(d2_o);
-  digitalWrite(O_2, LOW);
-  delay(2);
   digitalWrite(O_2, HIGH);
+  delay(2);
+  digitalWrite(O_2, LOW);
 
   show(d3_o);
-  digitalWrite(O_3, LOW);
-  delay(2);
   digitalWrite(O_3, HIGH);
+  delay(2);
+  digitalWrite(O_3, LOW);
 }
 
 void Wicket(int number) 
@@ -199,14 +199,14 @@ void Wicket(int number)
   int d2_w = number % 10;
 
   show(d1_w);
-  digitalWrite(W_1, LOW);
-  delay(2);
   digitalWrite(W_1, HIGH);
+  delay(2);
+  digitalWrite(W_1, LOW);
 
   show(d2_w);
-  digitalWrite(W_2, LOW);
-  delay(2);
   digitalWrite(W_2, HIGH);
+  delay(2);
+  digitalWrite(W_2, LOW);
 }
 
 void target(int number) 
@@ -216,19 +216,19 @@ void target(int number)
   int d3_trg = number % 10;
 
   show(d1_trg);
-  digitalWrite(T_1, LOW);
-  delay(2);
   digitalWrite(T_1, HIGH);
+  delay(2);
+  digitalWrite(T_1, LOW);
 
   show(d2_trg);
-  digitalWrite(T_2, LOW);
-  delay(2);
   digitalWrite(T_2, HIGH);
+  delay(2);
+  digitalWrite(T_2, LOW);
 
   show(d3_trg);
-  digitalWrite(T_3, LOW);
-  delay(2);
   digitalWrite(T_3, HIGH);
+  delay(2);
+  digitalWrite(T_3, LOW);
 }
 
 
@@ -249,8 +249,8 @@ void target(int number)
 
 void setup() {
   
-  bt.begin("ESP32_BT",true);
-  bt.setPin("214876",6);
+  bt.begin("ESP32_BT");
+//  bt.setPin("214876");
 
   pinMode(13,OUTPUT);
   pinMode(12,OUTPUT);
